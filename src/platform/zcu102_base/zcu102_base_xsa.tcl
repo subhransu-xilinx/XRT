@@ -51,7 +51,7 @@
 # *************************************************************************
 
 puts "INFO: (Xilinx Acceleration Development Board Reference Design) creating emulation project and constructing BD"
-source create_emu_design.tcl
+#source create_emu_design.tcl
 
 # Project
 puts "INFO: (Xilinx Acceleration Development Board Reference Design) creating project and constructing BD"
