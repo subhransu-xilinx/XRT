@@ -499,7 +499,72 @@ proc create_root_design { parentCell } {
   # Create instance: axi_interconnect_hpm0fpd, and set properties
   set axi_interconnect_hpm0fpd [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect axi_interconnect_hpm0fpd ]
   set_property -dict [ list \
+   CONFIG.M00_HAS_REGSLICE {4} \
+   CONFIG.M01_HAS_REGSLICE {4} \
+   CONFIG.M02_HAS_REGSLICE {4} \
+   CONFIG.M03_HAS_REGSLICE {4} \
+   CONFIG.M04_HAS_REGSLICE {4} \
+   CONFIG.M05_HAS_REGSLICE {4} \
+   CONFIG.M06_HAS_REGSLICE {4} \
+   CONFIG.M07_HAS_REGSLICE {4} \
+   CONFIG.M08_HAS_REGSLICE {4} \
+   CONFIG.M09_HAS_REGSLICE {4} \
+   CONFIG.M10_HAS_REGSLICE {4} \
+   CONFIG.M11_HAS_REGSLICE {4} \
+   CONFIG.M12_HAS_REGSLICE {4} \
+   CONFIG.M13_HAS_REGSLICE {4} \
+   CONFIG.M14_HAS_REGSLICE {4} \
+   CONFIG.M15_HAS_REGSLICE {4} \
+   CONFIG.M16_HAS_REGSLICE {4} \
+   CONFIG.M17_HAS_REGSLICE {4} \
+   CONFIG.M18_HAS_REGSLICE {4} \
+   CONFIG.M19_HAS_REGSLICE {4} \
+   CONFIG.M20_HAS_REGSLICE {4} \
+   CONFIG.M21_HAS_REGSLICE {4} \
+   CONFIG.M22_HAS_REGSLICE {4} \
+   CONFIG.M23_HAS_REGSLICE {4} \
+   CONFIG.M24_HAS_REGSLICE {4} \
+   CONFIG.M25_HAS_REGSLICE {4} \
+   CONFIG.M26_HAS_REGSLICE {4} \
+   CONFIG.M27_HAS_REGSLICE {4} \
+   CONFIG.M28_HAS_REGSLICE {4} \
+   CONFIG.M29_HAS_REGSLICE {4} \
+   CONFIG.M30_HAS_REGSLICE {4} \
+   CONFIG.M31_HAS_REGSLICE {4} \
+   CONFIG.M32_HAS_REGSLICE {4} \
+   CONFIG.M33_HAS_REGSLICE {4} \
+   CONFIG.M34_HAS_REGSLICE {4} \
+   CONFIG.M35_HAS_REGSLICE {4} \
+   CONFIG.M36_HAS_REGSLICE {4} \
+   CONFIG.M37_HAS_REGSLICE {4} \
+   CONFIG.M38_HAS_REGSLICE {4} \
+   CONFIG.M39_HAS_REGSLICE {4} \
+   CONFIG.M40_HAS_REGSLICE {4} \
+   CONFIG.M41_HAS_REGSLICE {4} \
+   CONFIG.M42_HAS_REGSLICE {4} \
+   CONFIG.M43_HAS_REGSLICE {4} \
+   CONFIG.M44_HAS_REGSLICE {4} \
+   CONFIG.M45_HAS_REGSLICE {4} \
+   CONFIG.M46_HAS_REGSLICE {4} \
+   CONFIG.M47_HAS_REGSLICE {4} \
+   CONFIG.M48_HAS_REGSLICE {4} \
+   CONFIG.M49_HAS_REGSLICE {4} \
+   CONFIG.M50_HAS_REGSLICE {4} \
+   CONFIG.M51_HAS_REGSLICE {4} \
+   CONFIG.M52_HAS_REGSLICE {4} \
+   CONFIG.M53_HAS_REGSLICE {4} \
+   CONFIG.M54_HAS_REGSLICE {4} \
+   CONFIG.M55_HAS_REGSLICE {4} \
+   CONFIG.M56_HAS_REGSLICE {4} \
+   CONFIG.M57_HAS_REGSLICE {4} \
+   CONFIG.M58_HAS_REGSLICE {4} \
+   CONFIG.M59_HAS_REGSLICE {4} \
+   CONFIG.M60_HAS_REGSLICE {4} \
+   CONFIG.M61_HAS_REGSLICE {4} \
+   CONFIG.M62_HAS_REGSLICE {4} \
+   CONFIG.M63_HAS_REGSLICE {4} \
    CONFIG.NUM_MI {1} \
+   CONFIG.S00_HAS_REGSLICE {4} \
  ] $axi_interconnect_hpm0fpd
 
   # Create instance: axi_register_slice_hpm0fpd, and set properties
@@ -886,6 +951,9 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00010000 -offset 0x80810000 [get_bd_addr_spaces regslice_control_userpf_M_AXI] [get_bd_addr_segs v_frmbuf_rd_0/s_axi_CTRL/Reg] SEG_v_frmbuf_rd_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0x80820000 [get_bd_addr_spaces regslice_control_userpf_M_AXI] [get_bd_addr_segs v_frmbuf_wr_0/s_axi_CTRL/Reg] SEG_v_frmbuf_wr_0_Reg
 
+  set_property HDL_ATTRIBUTE.DPA_AXILITE_MASTER fallback [get_bd_cells /interconnect_axilite_user_slr1]
+  set_property HDL_ATTRIBUTE.DPA_TRACE_SLAVE true [get_bd_cells /interconnect_axifull_2_user_slr1]
+  set_property HDL_ATTRIBUTE.DPA_TRACE_MASTER true [get_bd_cells /axi_interconnect_hpm0fpd]
 
   # Restore current instance
   current_bd_instance $oldCurInst
